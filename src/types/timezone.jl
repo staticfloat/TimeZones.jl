@@ -16,7 +16,7 @@ function _prefetch_tz_cache()
             if isdir(path)
                 push!(check, (path, name))
             else
-                _TZ_CACHE[name] = open(deserialize, tz_path, "r")
+                _TZ_CACHE[name] = open(deserialize, path, "r")
             end
         end
     end
