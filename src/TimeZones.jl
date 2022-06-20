@@ -39,8 +39,8 @@ const DEPS_DIR = joinpath(PKG_DIR, "deps")
 abstract type Local <: TimeZone end
 
 function __init__()
-    # Initialize the thread-local TimeZone cache (issue #342)
-    _reset_tz_cache()
+    # Load the pre-computed TZData into memory
+    _prefetch_tz_cache()
 
     # Base extension needs to happen everytime the module is loaded (issue #24)
     Dates.CONVERSION_SPECIFIERS['z'] = TimeZone
