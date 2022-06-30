@@ -17,8 +17,5 @@ function build(version::AbstractString=tzdata_version(); force::Bool=false)
         TimeZones.WindowsTimeZoneIDs.build(force=force)
     end
 
-    # Reset cached information
-    _prefetch_tz_cache()
-
     @info "Successfully built TimeZones"
 end
